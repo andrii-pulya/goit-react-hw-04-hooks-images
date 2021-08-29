@@ -58,18 +58,6 @@ export default function App() {
     } else {
       setPictureName(pictureNameFind.trim())
     }
-
-    // if (pictureNameFind.trim() !== '') {
-    //   setPictureName(pictureNameFind.trim())
-    // } else {
-    //   toast.error('Please, enter the key word!')
-    // }
-
-    // if else (pictureNameFind.trim() === pictureName) {
-    //   toast('Look, We already find it!', {
-    //     style: { color: 'blue', backgroundColor: 'yellow' },
-    //     icon: '🔥',
-    //   })
   }
 
   function handleLoadMore() {
