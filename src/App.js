@@ -48,18 +48,28 @@ export default function App() {
   }, [pictureName])
 
   function handleFormSubmit(pictureNameFind) {
-    if (pictureNameFind.trim() !== '') {
-      setPictureName(pictureNameFind.trim())
-    } else {
+    if (pictureNameFind.trim() === '') {
       toast.error('Please, enter the key word!')
-    }
-
-    if (pictureNameFind.trim() === pictureName) {
+    } else if (pictureNameFind.trim() === pictureName) {
       toast('Look, We already find it!', {
         style: { color: 'blue', backgroundColor: 'yellow' },
         icon: '🔥',
       })
+    } else {
+      setPictureName(pictureNameFind.trim())
     }
+
+    // if (pictureNameFind.trim() !== '') {
+    //   setPictureName(pictureNameFind.trim())
+    // } else {
+    //   toast.error('Please, enter the key word!')
+    // }
+
+    // if else (pictureNameFind.trim() === pictureName) {
+    //   toast('Look, We already find it!', {
+    //     style: { color: 'blue', backgroundColor: 'yellow' },
+    //     icon: '🔥',
+    //   })
   }
 
   function handleLoadMore() {
