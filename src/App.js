@@ -26,25 +26,20 @@ export default function App() {
     if (pictureName === null) {
       return
     }
-
-    if (pictureName === '') {
-      toast.error('Please, enter the key word!')
-    } else {
-      setPictures([])
-      setReqstatus('pending')
-      PixabayService.resetPage()
-      PixabayService.pictureFind(pictureName)
-        .then((response) => {
-          if (response.hits.length === 0) {
-            setReqstatus('rejected')
-            toast.error("We tried, but can't find any")
-          } else {
-            setPictures(response.hits)
-            setReqstatus('resolved')
-          }
-        })
-        .catch((error) => alert(error.message))
-    }
+    setPictures([])
+    setReqstatus('pending')
+    PixabayService.resetPage()
+    PixabayService.pictureFind(pictureName)
+      .then((response) => {
+        if (response.hits.length === 0) {
+          setReqstatus('rejected')
+          toast.error("We tried, but can't find any")
+        } else {
+          setPictures(response.hits)
+          setReqstatus('resolved')
+        }
+      })
+      .catch((error) => alert(error.message))
   }, [pictureName])
 
   function handleFormSubmit(pictureNameFind) {
